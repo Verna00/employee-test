@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="container md:mx-8">
+    <button class="btn border-2 border-sky-900 text-sky-900 float-right my-4 py-3 px-6 rounded-md hover:bg-sky-900 hover:text-white" (click)="addEmployee()">Add new</button>
+    <div>
+  <br>
+      <div>
+        <label>Filteredby</label>
+        <input class="py-2  mx-6 px-8 border-2 border-gray-200" type="text" [(ngModel)]='listFilter'>
+        <br>
+
+      </div>
+
+      <div class="overflow-x-auto my-8 shadow-md rounded-lg">
+        <table class="w-full text-sm  text-left text-gray-500">
+          <thead class="text-xs text-white  uppercase bg-sky-800">
+            <tr>
+              <th scope="col" class="px-6 py-3">ID</th>
+              <th scope="col" class="px-6 py-3">Name</th>
+              <th scope="col" class="px-6 py-3">Phone</th>
+              <th scope="col" class="px-6 py-3 hidden sm:table-cell">Street</th>
+              <th scope="col" class="px-6 py-3 hidden md:table-cell">City</th>
+              <th scope="col" class="px-6 py-3 hidden lg:table-cell">State</th>
+              <th scope="col" class="px-6 py-3 hidden lg:table-cell">PostCode</th>
+              <!-- <th scope="col" class="px-6 py-3">Actions</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of filteredEmployee" class="bg-white border-b s hover:bg-gray-50">
+              <td class="px-6 py-4 font-medium text-gray-900">{{employee.id}}</td>
+              <td class="px-6 py-4">{{employee.name}}</td>
+              <td class="px-6 py-4">{{employee.phone}}</td>
+              <td class="px-6 py-4 hidden sm:table-cell">{{employee.address.street}}</td>
+              <td class="px-6 py-4 hidden md:table-cell">{{employee.address.city}}</td>
+              <td class="px-6 py-4 hidden lg:table-cell">{{employee.address.state}}</td>
+              <td class="px-6 py-4 hidden lg:table-cell">{{employee.address.PostCode}}</td>
+              <!-- <td class="px-6 py-4 flex space-x-2">
+                <a [routerLink]="['/employee',employee.id]" class="font-medium text-blue-600 hover:underline">Edit</a>
+                <button (click)="deleteEmployee(employee)" class="font-medium text-red-600 hover:underline">Delete</button>
+              </td> -->
+            </tr>
+    
+
+
+          </tbody>
+        </table>
+      </div>
+
+   
+    </div>
+  </div>
